@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./pages/index.css">
+    <title>Mesto</title>
+  </head>
+  <body class="page">
+    <header class="header">
+     <img src="./images/logo.svg" class="header__logo">
+    </header>
+    <main class="page__content">
+      <section class="profile">
+        <img class="profile__avatar" src="./images/Avatar.svg" alt="фотография Жак-Ив Кусто">
+        <div class="profile__info">
+          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <p class="profile__subtitle">Исследователь океана</p>
+          <button
+            type="button"
+            class="profile__edit-button"
+            aria-label="редактировать профиль">
+          </button>
+        </div>
+        <button
+          type="button"
+          class="profile__add-button"
+          aria-label="добавить фотографию">
+        </button>
+      </section>
+      <section class="photo-gallery" aria-label="фото-галерея">
+        <ul class="photo-gallery__items">
+          <li>
+            <figure class="photo-gallery__container">
+              <img
+                class="photo-gallery__item"
+                src="./images/Altai, Россия.jpg"
+                alt="Алтай"
+              />
+              <figcaption class="item__description">
+                <h1 class="item__title">Алтай</h1>
+                <button
+                  type="button"
+                  class="item__like-button "
+                  aria-label="Добавить в избранное"
+                ></button>
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="photo-gallery__container">
+              <img
+                class="photo-gallery__item"
+                src="./images/Baïkal, Иркутская область, Russia.jpg"
+                alt="Байкал"
+              />
+              <figcaption class="item__description">
+                <h1 class="item__title">Байкал</h1>
+                <button
+                  type="button"
+                  class="item__like-button"
+                  aria-label="Добавить в избранное"
+                ></button>
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="photo-gallery__container">
+              <img
+                class="photo-gallery__item"
+                src="./images/Kamchatka , Russia.jpg"
+                alt="Камчатка"
+              />
+              <figcaption class="item__description">
+                <h1 class="item__title">Камчатка</h1>
+                <button
+                  type="button"
+                  class="item__like-button"
+                  aria-label="Добавить в избранное"
+                ></button>
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="photo-gallery__container">
+              <img
+                class="photo-gallery__item"
+                src="./images/Moscow, Russia.jpg"
+                alt="Москва"
+              />
+              <figcaption class="item__description">
+                <h1 class="item__title">Москва</h1>
+                <button
+                  type="button"
+                  class="item__like-button"
+                  aria-label="Добавить в избранное"
+                ></button>
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="photo-gallery__container">
+              <img
+                class="photo-gallery__item"
+                src="./images/Ruskeala, Республика Карелия, Russia.jpg"
+                alt="Карелия, горный парк Рускеала"
+              />
+              <figcaption class="item__description">
+                <h1 class="item__title">Карелия, горный парк Рускеала</h1>
+                <button
+                  type="button"
+                  class="item__like-button"
+                  aria-label="Добавить в избранное"
+                ></button>
+              </figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="photo-gallery__container">
+              <img
+                class="photo-gallery__item"
+                src="./images/Saint Isaac's Square, Saint Petersburg.jpg"
+                alt="Санкт-Петербург, Исаакиевская площадь"
+              />
+              <figcaption class="item__description">
+                <h1 class="item__title">Санкт-Петербург</h1>
+                <button
+                  type="button"
+                  class="item__like-button"
+                  aria-label="Добавить в избранное"
+                ></button>
+              </figcaption>
+            </figure>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
+    </footer>
+    <div class="popup popup__opened">
+      <div class="popup__container">
+        <form class="popup__form">
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <input class="popup__input" type="text" placeholder="Имя">
+          <input class="popup__input" type="text" placeholder="Профессия">
+          <button class="popup__save-button" type="submit">Сохранить</button>
+          <button type="button" class="popup__close-button" aria-label="Закрыть окно"></button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
