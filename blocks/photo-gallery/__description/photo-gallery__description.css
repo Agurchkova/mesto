@@ -1,15 +1,9 @@
-.item__description {
-    padding: 25px 20px 31px 21px;
+.photo-gallery__description {
+    padding: 25px 20px 27px 21px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     display: flex;
     justify-content: space-between;
     max-width: 100%;
-}
-
-@media screen and (max-width: 886px) {
-    .page {
-        padding: 28px 0 36px;
-    }
 }

@@ -1,4 +1,4 @@
-.item__like-button {
+.photo-gallery__like-button {
     background-image: url('../../../images/LikeButton.svg');
     background-repeat: no-repeat;
     background-size: contain;
@@ -11,11 +11,11 @@
     transition: 0.5s;
 }
 
-.item__like-button:hover {
+.photo-gallery__like-button:hover {
     opacity: 0.5;
 }
 
-.item__like-button:active {
+.photo-gallery__like-button:active {
     opacity: 1;
     background-image: url('../../../images/LikeButtonActive.svg');
 }
