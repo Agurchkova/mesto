@@ -5,12 +5,21 @@
     background-color: #000000;
     color: #FFFFFF;
     cursor: pointer;
-    height: 50px;
-    width: 100%;
+    padding: 14px 124px 18px 125px;
+    max-width: 100%;
     border: none;
     transition: opacity 0.5s;
 }
 
 .popup__save-button:hover {
     opacity: 0.8;
+}
+
+@media screen and (max-width: 648px) {
+    .popup__save-button {
+        max-width: 238px;
+        font-size: 14px;
+        line-height: 16.94px;
+        padding: 14px 82px;
+    }
 }

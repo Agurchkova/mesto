@@ -9,11 +9,14 @@
   </head>
   <body class="page">
     <header class="header">
-     <img src="./images/logo.svg" class="header__logo">
+      <img src="./images/logo.svg" class="header__logo" alt="Логотип Место Россия">
     </header>
     <main class="page__content">
       <section class="profile">
-        <img class="profile__avatar" src="./images/Avatar.svg" alt="фотография Жак-Ив Кусто">
+        <img
+          class="profile__avatar"
+          src="./images/Avatar.svg"
+          alt="фотография Жак-Ив Кусто">
         <div class="profile__info">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
           <p class="profile__subtitle">Исследователь океана</p>
@@ -35,16 +38,15 @@
             <figure class="photo-gallery__container">
               <img
                 class="photo-gallery__item"
-                src="./images/Altai, Россия.jpg"
-                alt="Алтай"
-              />
+                src="./images//Altai_Russia.jpg"
+                alt="фотография Алтай">
               <figcaption class="item__description">
-                <h1 class="item__title">Алтай</h1>
+                <h2 class="item__title">Алтай</h2>
                 <button
                   type="button"
-                  class="item__like-button "
-                  aria-label="Добавить в избранное"
-                ></button>
+                  class="item__like-button"
+                  aria-label="Добавить в избранное">
+                </button>
               </figcaption>
             </figure>
           </li>
@@ -52,16 +54,15 @@
             <figure class="photo-gallery__container">
               <img
                 class="photo-gallery__item"
-                src="./images/Baïkal, Иркутская область, Russia.jpg"
-                alt="Байкал"
-              />
+                src="./images/Baïkal_Russia.jpg"
+                alt="фотография Байкал">
               <figcaption class="item__description">
-                <h1 class="item__title">Байкал</h1>
+                <h2 class="item__title">Байкал</h2>
                 <button
                   type="button"
                   class="item__like-button"
-                  aria-label="Добавить в избранное"
-                ></button>
+                  aria-label="Добавить в избранное">
+                </button>
               </figcaption>
             </figure>
           </li>
@@ -69,16 +70,15 @@
             <figure class="photo-gallery__container">
               <img
                 class="photo-gallery__item"
-                src="./images/Kamchatka , Russia.jpg"
-                alt="Камчатка"
-              />
+                src="./images/Kamchatka_Russia.jpg"
+                alt="фотография Камчатка">
               <figcaption class="item__description">
-                <h1 class="item__title">Камчатка</h1>
+                <h2 class="item__title">Камчатка</h2>
                 <button
                   type="button"
                   class="item__like-button"
-                  aria-label="Добавить в избранное"
-                ></button>
+                  aria-label="Добавить в избранное">
+                </button>
               </figcaption>
             </figure>
           </li>
@@ -86,16 +86,15 @@
             <figure class="photo-gallery__container">
               <img
                 class="photo-gallery__item"
-                src="./images/Moscow, Russia.jpg"
-                alt="Москва"
-              />
+                src="./images/Moscow_Russia.jpg"
+                alt="фотография Москва">
               <figcaption class="item__description">
-                <h1 class="item__title">Москва</h1>
+                <h2 class="item__title">Москва</h2>
                 <button
                   type="button"
                   class="item__like-button"
-                  aria-label="Добавить в избранное"
-                ></button>
+                  aria-label="Добавить в избранное">
+                </button>
               </figcaption>
             </figure>
           </li>
@@ -103,16 +102,15 @@
             <figure class="photo-gallery__container">
               <img
                 class="photo-gallery__item"
-                src="./images/Ruskeala, Республика Карелия, Russia.jpg"
-                alt="Карелия, горный парк Рускеала"
-              />
+                src="./images/Ruskeala_Karelia_Russia.jpg"
+                alt="фотография Карелия, горный парк Рускеала">
               <figcaption class="item__description">
-                <h1 class="item__title">Карелия, горный парк Рускеала</h1>
+                <h2 class="item__title">Карелия, горный парк Рускеала</h2>
                 <button
                   type="button"
                   class="item__like-button"
-                  aria-label="Добавить в избранное"
-                ></button>
+                  aria-label="Добавить в избранное">
+                </button>
               </figcaption>
             </figure>
           </li>
@@ -120,16 +118,15 @@
             <figure class="photo-gallery__container">
               <img
                 class="photo-gallery__item"
-                src="./images/Saint Isaac's Square, Saint Petersburg.jpg"
-                alt="Санкт-Петербург, Исаакиевская площадь"
-              />
+                src="./images/Saint-Petersburg_Saint-Isaacs_Square.jpg"
+                alt="фотография Санкт-Петербург, Исаакиевская площадь">
               <figcaption class="item__description">
-                <h1 class="item__title">Санкт-Петербург</h1>
+                <h2 class="item__title">Санкт-Петербург</h2>
                 <button
                   type="button"
                   class="item__like-button"
-                  aria-label="Добавить в избранное"
-                ></button>
+                  aria-label="Добавить в избранное">
+                </button>
               </figcaption>
             </figure>
           </li>
@@ -139,14 +136,24 @@
     <footer class="footer">
       <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
     </footer>
-    <div class="popup popup_opened">
+    <div class="popup">
       <div class="popup__container">
+        <button
+          type="button"
+          class="popup__close-button"
+          aria-label="Закрыть окно">
+        </button>
         <form class="popup__form">
           <h2 class="popup__title">Редактировать профиль</h2>
-          <input class="popup__input" type="text" placeholder="Имя">
-          <input class="popup__input" type="text" placeholder="Профессия">
+          <input
+            class="popup__input popup__input_type_name"
+            type="text"
+            placeholder="Имя">
+          <input
+            class="popup__input popup__input_type_job"
+            type="text"
+            placeholder="Профессия">
           <button class="popup__save-button" type="submit">Сохранить</button>
-          <button type="button" class="popup__close-button" aria-label="Закрыть окно"></button>
         </form>
       </div>
     </div>

@@ -6,24 +6,21 @@
     font-style: normal;
     font-weight: 500;
     line-height: 48px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-@media screen and (max-width: 984px) {
-    .profile__title {
-        text-align: center;
-        margin: 0;
-    }
-}
-
-@media screen and (max-width: 710px) {
+@media screen and (max-width: 800px) {
     .profile__title {
         font-size: 34px;
     }
 }
 
-@media screen and (max-width: 568px) {
+@media screen and (max-width: 648px) {
     .profile__title {
         font-size: 27px;
-        line-height: 33px;
+        line-height: 32.68px;
     }
 }
