@@ -2,6 +2,8 @@
     margin-right: 30px;
     max-width: 120px;
     min-height: 120px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
 }
 
 @media screen and (max-width: 648px) {

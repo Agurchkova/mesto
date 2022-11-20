@@ -3,11 +3,9 @@
     right: -42px;
     top: -42px;
     background-image: url(../../../images/CloseButton.svg);
-    background-color: #0000;
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: contain;
-    border: none;
     cursor: pointer;
     height: 32px;
     width: 32px;

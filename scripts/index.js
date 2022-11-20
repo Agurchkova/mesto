@@ -11,7 +11,6 @@ const openPopup = function (event) {
     popupElement.classList.add('popup_opened');
     nameInput.value = profileName.textContent;
     jobInput.value = profileJob.textContent;
-    console.log('Open popup clicked');
 }
 
 const closePopup = function () {
@@ -19,7 +18,6 @@ const closePopup = function () {
 }
 
 const closePopupByClickOnOverlay = function (event) {
-    console.log(event.target, event.currentTarget);
     if (event.target !== event.currentTarget) {
         return;
     }
@@ -27,15 +25,14 @@ const closePopupByClickOnOverlay = function (event) {
     closePopup();
 }
 
-popupOpenButtonElement.addEventListener('click', openPopup);
-popupCloseButtonElement.addEventListener('click', closePopup);
-popupElement.addEventListener('click', closePopupByClickOnOverlay);
-
 function formSubmitHandler(evt) {
     evt.preventDefault();
     profileName.textContent = nameInput.value;
     profileJob.textContent = jobInput.value;
-    closePopup();
+    closePopup ();
 }
 
+popupOpenButtonElement.addEventListener('click', openPopup);
+popupCloseButtonElement.addEventListener('click', closePopup);
+popupElement.addEventListener('click', closePopupByClickOnOverlay);
 formElement.addEventListener('submit', formSubmitHandler);

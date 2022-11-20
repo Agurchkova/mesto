@@ -1,21 +1,15 @@
 .popup__input {
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    margin: 0 auto 29px;
     font-weight: 400;
     font-size: 14px;
     line-height: 16.94px;
     color: #000000;
+    max-width: 358px;
     width: 100%;
-    padding-bottom: 12px;
-}
-
-.popup__input:nth-of-type(2) {
-    margin: 0 auto 46px;
-}
-
-@media screen and (max-width: 600px) {
-    .popup__input:nth-of-type(2) {
-        margin: 0 auto 45px;
-    }
+    padding: 0 0 10px;
+    background-color: transparent;
+    outline: none;
+    box-sizing: border-box;
+    margin: 0;
 }
