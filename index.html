@@ -9,7 +9,10 @@
   </head>
   <body class="page">
     <header class="header">
-      <img src="./images/logo.svg" class="header__logo" alt="Логотип Место Россия">
+      <img
+        src="./images/logo.svg"
+        class="header__logo"
+        alt="Логотип Место Россия">
     </header>
     <main class="page__content">
       <section class="profile">
@@ -33,149 +36,105 @@
         </button>
       </section>
       <section class="photo-gallery" aria-label="фото-галерея">
-        <ul class="photo-gallery__items">
-          <li>
-            <figure class="photo-gallery__container">
-              <img
-                class="photo-gallery__item"
-                src="./images//Altai_Russia.jpg"
-                alt="фотография Алтай">
-              <figcaption class="photo-gallery__description">
-                <h2 class="photo-gallery__title">Алтай</h2>
-                <button
-                  type="button"
-                  class="photo-gallery__like-button button"
-                  aria-label="Добавить в избранное">
-                </button>
-              </figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure class="photo-gallery__container">
-              <img
-                class="photo-gallery__item"
-                src="./images/Baïkal_Russia.jpg"
-                alt="фотография Байкал">
-              <figcaption class="photo-gallery__description">
-                <h2 class="photo-gallery__title">Байкал</h2>
-                <button
-                  type="button"
-                  class="photo-gallery__like-button button"
-                  aria-label="Добавить в избранное">
-                </button>
-              </figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure class="photo-gallery__container">
-              <img
-                class="photo-gallery__item"
-                src="./images/Kamchatka_Russia.jpg"
-                alt="фотография Камчатка">
-              <figcaption class="photo-gallery__description">
-                <h2 class="photo-gallery__title">Камчатка</h2>
-                <button
-                  type="button"
-                  class="photo-gallery__like-button button"
-                  aria-label="Добавить в избранное">
-                </button>
-              </figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure class="photo-gallery__container">
-              <img
-                class="photo-gallery__item"
-                src="./images/Moscow_Russia.jpg"
-                alt="фотография Москва">
-              <figcaption class="photo-gallery__description">
-                <h2 class="photo-gallery__title">Москва</h2>
-                <button
-                  type="button"
-                  class="photo-gallery__like-button button"
-                  aria-label="Добавить в избранное">
-                </button>
-              </figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure class="photo-gallery__container">
-              <img
-                class="photo-gallery__item"
-                src="./images/Ruskeala_Karelia_Russia.jpg"
-                alt="фотография Карелия, горный парк Рускеала">
-              <figcaption class="photo-gallery__description">
-                <h2 class="photo-gallery__title">Карелия, горный парк Рускеала</h2>
-                <button
-                  type="button"
-                  class="photo-gallery__like-button button"
-                  aria-label="Добавить в избранное">
-                </button>
-              </figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure class="photo-gallery__container">
-              <img
-                class="photo-gallery__item"
-                src="./images/Saint-Petersburg_Saint-Isaacs_Square.jpg"
-                alt="фотография Санкт-Петербург, Исаакиевская площадь">
-              <figcaption class="photo-gallery__description">
-                <h2 class="photo-gallery__title">Санкт-Петербург</h2>
-                <button
-                  type="button"
-                  class="photo-gallery__like-button button"
-                  aria-label="Добавить в избранное">
-                </button>
-              </figcaption>
-            </figure>
-          </li>
-        </ul>
+        <ul class="photo-gallery__items"></ul>
       </section>
     </main>
     <footer class="footer">
       <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
     </footer>
-    <div class="popup popup_type_edit_profile">
+    <div class="popup popup_type_edit-profile">
       <div class="popup__container">
         <button
           type="button"
           class="popup__close-button button"
           aria-label="Закрыть окно">
         </button>
-        <form class="popup__form" name="popupform">
+        <form class="popup__form" name="EditProfilePopupform">
           <h2 class="popup__title">Редактировать профиль</h2>
           <input
             class="popup__input popup__input_type_name"
             type="text"
-            placeholder="Имя" name="inputname" required>
+            placeholder="Имя"
+            name="inputname"
+            required>
           <input
             class="popup__input popup__input_type_job"
             type="text"
-            placeholder="Профессия" name="inputjob" required>
-            <button class="popup__save-button button" type="submit">Сохранить</button>
-        </form> 
-      </div>
-    </div>
-    <!--<div class="popup popup__opened">
-      <div class="popup__container">
-        <form class="popup__form">
-          <h2 class="popup__title">Новое место</h2>
-          <input class="popup__input" type="text" placeholder="Название">
-          <input class="popup__input" type="text" placeholder="Ссылка на картинку">
-          <button class="popup__save-button" type="submit">Создать</button>
-          <button type="button" class="popup__close-button" aria-label="Закрыть окно"></button>
+            placeholder="Профессия"
+            name="inputjob"
+            required>
+          <button class="popup__save-button button" type="submit">
+            Сохранить
+          </button>
         </form>
       </div>
     </div>
-    <div class="popup popup__opened popup_type_image">
+    <div class="popup popup_type_add-cards">
+      <div class="popup__container">
+        <button
+          type="button"
+          class="popup__close-button button"
+          aria-label="Закрыть окно"
+          name="closeButtonAdd">
+        </button>
+        <form class="popup__form" name="AddNewItem">
+          <h2 class="popup__title">Новое место</h2>
+          <input
+            class="popup__input popup__input_type_nameAdd"
+            type="text"
+            placeholder="Название"
+            name="inp_title"
+            required>
+          <input
+            class="popup__input popup__input_type_urlAdd"
+            type="text"
+            placeholder="Ссылка на картинку"
+            name="inp_url"
+            required>
+          <button class="popup__save-button" type="submit">Создать</button>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup_type_big-image">
       <figure class="popup__container-image">
-        <img src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg"
-        class="popup__image"
-         alt="фото Архыз">
-        <figcaption class="popup__image-caption">Архыз</figcaption>
-          <button type="button" class="popup__close-button" aria-label="Закрыть окно"></button>
+        <img src="#" class="popup__big-image" alt="#">
+        <figcaption class="popup__image-caption">#</figcaption>
+        <button
+          type="button"
+          class="popup__close-button button"
+          aria-label="Закрыть окно"
+          name="closebigimage">
+        </button>
       </figure>
-    </div> -->
+    </div>
+    <template id="item-template">
+      <li>
+        <figure class="photo-gallery__container">
+          <button
+            type="button"
+            class="photo-gallery__trash-button button"
+            aria-label="Удалить">
+          </button>
+          <button
+            class="photo-gallery__item-button"
+            type="button"
+            aria-label="Увеличение картинки">
+            <img
+              class="photo-gallery__item"
+              src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg"
+              alt="Архыз">
+          </button>
+          <figcaption class="photo-gallery__description">
+            <h2 class="photo-gallery__title"></h2>
+            <button
+              type="button"
+              class="photo-gallery__like-button button"
+              aria-label="Добавить в избранное">
+            </button>
+          </figcaption>
+        </figure>
+      </li>
+    </template>
+    <script src="./scripts/index.js"></script>
   </body>
 </html>
