@@ -49,20 +49,38 @@
           class="popup__close-button button"
           aria-label="Закрыть окно">
         </button>
-        <form class="popup__form" name="EditProfilePopupform">
+        <form class="popup__form" name="EditProfilePopupform" novalidate>
           <h2 class="popup__title">Редактировать профиль</h2>
-          <input
-            class="popup__input popup__input_type_name"
-            type="text"
-            placeholder="Имя"
-            name="inputname"
-            required>
-          <input
-            class="popup__input popup__input_type_job"
-            type="text"
-            placeholder="Профессия"
-            name="inputjob"
-            required>
+          <label>
+            <input
+              class="popup__input popup__input_type_name"
+              type="text"
+              placeholder="Имя"
+              name="inputname"
+              minlength="2"
+              maxlength="40"
+              id="input-name"
+              required>
+             <span 
+                class="popup__input-error"
+                id="input-name-error">
+              </span>
+          </label>
+          <label>
+            <input
+              class="popup__input popup__input_type_job"
+              type="text"
+              placeholder="Профессия"
+              name="inputjob"
+              minlength="2"
+              maxlength="200"
+              id="input-job"
+              required>
+              <span 
+                class="popup__input-error" 
+                id="input-job-error">
+              </span>
+          </label>
           <button class="popup__save-button button" type="submit">
             Сохранить
           </button>
@@ -77,21 +95,40 @@
           aria-label="Закрыть окно"
           name="closeButtonAdd">
         </button>
-        <form class="popup__form" name="AddNewItem">
+        <form class="popup__form" name="AddNewItem" novalidate>
           <h2 class="popup__title">Новое место</h2>
-          <input
-            class="popup__input popup__input_type_nameAdd"
-            type="text"
-            placeholder="Название"
-            name="inp_title"
-            required>
-          <input
-            class="popup__input popup__input_type_urlAdd"
-            type="text"
-            placeholder="Ссылка на картинку"
-            name="inp_url"
-            required>
-          <button class="popup__save-button" type="submit">Создать</button>
+          <label>
+            <input
+              class="popup__input popup__input_type_nameAdd"
+              required
+              type="text"
+              placeholder="Название"
+              name="inp_title"
+              minlength="2"
+              maxlength="30"
+              id="input-title">
+             <span 
+                class="popup__input-error" 
+                id="input-title-error">
+             </span>
+          </label>
+          <label>
+            <input
+              class="popup__input popup__input_type_urlAdd"
+              type="url"
+              placeholder="Ссылка на картинку"
+              name="inp_url"
+              id="input-url"
+              required>
+            <span 
+              class="popup__input-error" 
+              id="input-url-error">
+            </span>
+          </label>
+          <button 
+            class="popup__save-button button popup__save-button_disabled" 
+            type="submit">Создать
+          </button>
         </form>
       </div>
     </div>
@@ -135,6 +172,7 @@
         </figure>
       </li>
     </template>
+    <script src="./scripts/validate.js"></script>
     <script src="./scripts/index.js" type ="module"></script>
   </body>
 </html>

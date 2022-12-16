@@ -1,4 +1,4 @@
-import initialCards from "./constants.js";
+import initialCards from "./cards.js";
 
 // Объявляем переменные======================================================
 
@@ -33,11 +33,13 @@ const itemTemplate = document.querySelector('#item-template').content.querySelec
 // Открытие попапов
 const openPopup = (popup) => {
     popup.classList.add('popup_opened');
+    document.addEventListener('keyup', handleKeyUp);
 }
 
 // Закрытие попапов 
 const closePopup = (popup) => {
     popup.classList.remove('popup_opened');
+    document.removeEventListener('keyup', handleKeyUp);
 }
 
 // Закрытие попапа крестиком и кликом вне рамок попапа
@@ -108,6 +110,14 @@ function render(data) {
     list.prepend(newItem);
 }
 
+//закрытие по кнопке искейп
+function handleKeyUp(evt) {
+    if (evt.key === 'Escape') {
+      const popupOpened = document.querySelector('.popup_opened');
+      closePopup(popupOpened);
+    }
+  }
+  
 //добавляем слушателей
 popupOpenEditProfileElement.addEventListener('click', () => {
     openPopup(popupEditProfileElement);
@@ -138,3 +148,18 @@ formElementAdd.addEventListener('submit', function SubmitformHandler(evt) {
     closePopup(popupEditAdd);
     formElementAdd.reset();
 });
+
+const enableValidation = () => {
+    const formList = Array.from(document.querySelectorAll('.form'));
+    formList.forEach((formElement) => {
+      formElement.addEventListener('submit', function (evt) {
+        evt.preventDefault();
+      });
+      const fieldsetList = Array.from(formElement.querySelectorAll('.form__set'));
+      fieldsetList.forEach((fieldSet) => {
+        setEventListeners(fieldSet);
+      });
+     
+    });
+  };
+  enableValidation();
