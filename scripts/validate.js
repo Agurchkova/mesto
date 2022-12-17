@@ -1,29 +1,40 @@
-// показывает ошибку
-const checkInputValidity = (input, config) => {
-    const error = document.querySelector(`#${input.id}-error`);
-
-    if (input.validity.valid) {
-        error.textContent = '';
-        error.classList.remove(config.errorClass);
-        input.classList.remove(config.inputErrorClass);
+//функция проверяет валидность инпутов
+function checkInputValidity(input, config) {
+    if (!input.validity.valid) {
+        showInputError(input, config);
     } else {
-        error.textContent = input.validationMessage;
-        error.classList.add(config.errorClass);
-        input.classList.add(config.inputErrorClass);
+        hideInputError(input, config);
     }
 }
 
-const toggleButtonState = (inputs, button, config) => {
+//добавление класса с ошибкой
+function showInputError(input, restConfig) {
+    const error = document.querySelector(`#${input.id}-error`);
+    input.classList.add(restConfig.inputErrorClass);
+    error.classList.add(restConfig.errorClass);
+    error.textContent = input.validationMessage;
+}
+
+//удаление класса с ошибкой
+function hideInputError(input, restConfig) {
+    const error = document.querySelector(`#${input.id}-error`);
+    input.classList.remove(restConfig.inputErrorClass);
+    error.classList.remove(restConfig.errorClass);
+    error.textContent = '';
+}
+
+//функция меняет состояние кнопки сохранения
+function toggleButtonState(inputs, buttonSave, config) {
+
     const isFormValid = inputs.every(input => input.validity.valid);
 
     if (isFormValid) {
-        button.classList.remove(config.inactiveButtonClass);
-        button.disabled = '';
+        buttonSave.classList.remove(config.inactiveButtonClass);
+        buttonSave.removeAttribute('disabled');
     } else {
-        button.classList.add(config.inactiveButtonClass);
-        button.disabled = 'disabled';
+        buttonSave.classList.add(config.inactiveButtonClass);
+        buttonSave.setAttribute('disabled', true);
     }
-
 }
 
 // включение валидации вызовом enableValidation
@@ -35,7 +46,7 @@ const enableValidation = (config) => {
 
     forms.forEach(form => {
         const inputs = [...form.querySelectorAll(config.inputSelector)];
-        const button = form.querySelector(config.submitButtonSelector);
+        const buttonSave = form.querySelector(config.submitButtonSelector);
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -44,12 +55,13 @@ const enableValidation = (config) => {
         inputs.forEach(input => {
             input.addEventListener('input', () => {
                 checkInputValidity(input, restConfig);
-                toggleButtonState(inputs, button, restConfig);
+                toggleButtonState(inputs, buttonSave, restConfig);
             })
         })
     })
 
 }
+
 enableValidation({
     formSelector: '.popup__form',
     inputSelector: '.popup__input',

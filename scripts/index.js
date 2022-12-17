@@ -44,7 +44,7 @@ const closePopup = (popup) => {
 
 // Закрытие попапа крестиком и кликом вне рамок попапа
 popupElement.forEach((popup) => {
-    popup.addEventListener('click', (evt) => {
+    popup.addEventListener('mousedown', (evt) => {
         if (evt.target.classList.contains('popup_opened')) {
             closePopup(popup)
         }
@@ -96,7 +96,7 @@ function createElement(item) {
     itemImage.src = item.link;
     itemImage.alt = item.name;
 
-    
+
     return itemElement;
 
 }
@@ -113,20 +113,26 @@ function render(data) {
 //закрытие по кнопке искейп
 function handleKeyUp(evt) {
     if (evt.key === 'Escape') {
-      const popupOpened = document.querySelector('.popup_opened');
-      closePopup(popupOpened);
+        const popupOpened = document.querySelector('.popup_opened');
+        closePopup(popupOpened);
     }
-  }
-  
+}
+
 //добавляем слушателей
 popupOpenEditProfileElement.addEventListener('click', () => {
     openPopup(popupEditProfileElement);
     nameInput.value = profileName.textContent;
     jobInput.value = profileJob.textContent;
-    });
-    
-popupOpenAdd.addEventListener('click', () =>
-openPopup(popupEditAdd));
+});
+
+popupOpenAdd.addEventListener('click', () => {
+    formElementAdd.reset();
+    const buttonSave = formElementAdd.querySelector('.popup__save-button');
+    buttonSave.classList.add(enableValidation.inactiveButtonClass);
+    buttonSave.setAttribute('disabled', true);
+    openPopup(popupEditAdd);
+});
+
 
 formElement.addEventListener('submit', function SubmitformHandler(evt) {
     evt.preventDefault();
@@ -148,18 +154,3 @@ formElementAdd.addEventListener('submit', function SubmitformHandler(evt) {
     closePopup(popupEditAdd);
     formElementAdd.reset();
 });
-
-const enableValidation = () => {
-    const formList = Array.from(document.querySelectorAll('.form'));
-    formList.forEach((formElement) => {
-      formElement.addEventListener('submit', function (evt) {
-        evt.preventDefault();
-      });
-      const fieldsetList = Array.from(formElement.querySelectorAll('.form__set'));
-      fieldsetList.forEach((fieldSet) => {
-        setEventListeners(fieldSet);
-      });
-     
-    });
-  };
-  enableValidation();
