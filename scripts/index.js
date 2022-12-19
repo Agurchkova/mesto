@@ -3,7 +3,7 @@ import initialCards from "./cards.js";
 // Объявляем переменные======================================================
 
 // popups
-const popupElement = document.querySelectorAll('.popup');
+const popupElements = document.querySelectorAll('.popup');
 const popupEditProfileElement = document.querySelector('.popup_type_edit-profile');
 const popupEditAdd = document.querySelector('.popup_type_add-cards');
 // popups close buttons
@@ -21,6 +21,8 @@ const jobInput = formElement.querySelector('.popup__input_type_job');
 const formElementAdd = document.querySelector('[name="AddNewItem"]');
 const addName = formElementAdd.querySelector('.popup__input_type_nameAdd');
 const addUrl = formElementAdd.querySelector('.popup__input_type_urlAdd');
+// popups save button
+const buttonSave = formElementAdd.querySelector('.popup__save-button');
 // popup big-Image
 const popupBigImage = document.querySelector('.popup_type_big-image');
 const bigImageUrl = document.querySelector('.popup__big-image');
@@ -43,7 +45,7 @@ const closePopup = (popup) => {
 }
 
 // Закрытие попапа крестиком и кликом вне рамок попапа
-popupElement.forEach((popup) => {
+popupElements.forEach((popup) => {
     popup.addEventListener('mousedown', (evt) => {
         if (evt.target.classList.contains('popup_opened')) {
             closePopup(popup)
@@ -127,8 +129,7 @@ popupOpenEditProfileElement.addEventListener('click', () => {
 
 popupOpenAdd.addEventListener('click', () => {
     formElementAdd.reset();
-    const buttonSave = formElementAdd.querySelector('.popup__save-button');
-    buttonSave.classList.add(enableValidation.inactiveButtonClass);
+    buttonSave.classList.add('popup__save-button_disabled');
     buttonSave.setAttribute('disabled', true);
     openPopup(popupEditAdd);
 });
