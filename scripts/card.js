@@ -4,8 +4,8 @@ export class Card {
         this._itemTemplate = document.querySelector(itemTemplateSelector).content.querySelector('.photo-gallery__container');
         this._itemElement = this._itemTemplate.cloneNode(true);
         this._handleImage = handleImage;
-        this._itemDeleteButton = this._itemElement.querySelector('.photo-gallery__trash-button');
         this._itemLikeButton = this._itemElement.querySelector('.photo-gallery__like-button');
+        this._itemDeleteButton = this._itemElement.querySelector('.photo-gallery__trash-button');
         this._itemBigImageButton = this._itemElement.querySelector('.photo-gallery__item-button');
     }
     //поставить лайк
