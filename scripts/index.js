@@ -1,5 +1,5 @@
 import { initialCards } from "./cards.js";
-import { Card } from "./card.js";
+import { Card } from "./Card.js";
 import { FormValidator } from './FormValidator.js';
 
 // Объявляем переменные======================================================
@@ -18,12 +18,9 @@ const formElement = document.querySelector('.popup__form');
 const nameInput = formElement.querySelector('.popup__input_type_name');
 const jobInput = formElement.querySelector('.popup__input_type_job');
 // form fields
-const formElementEditProfile = document.querySelector('[name="EditProfilePopupform"]');
 const formElementAdd = document.querySelector('[name="AddNewItem"]');
 const addName = formElementAdd.querySelector('.popup__input_type_nameAdd');
 const addUrl = formElementAdd.querySelector('.popup__input_type_urlAdd');
-// popups save button
-const buttonSave = formElementAdd.querySelector('.popup__save-button');
 // popup big-Image
 const popupBigImage = document.querySelector('.popup_type_big-image');
 const bigImageUrl = document.querySelector('.popup__big-image');
@@ -40,11 +37,20 @@ const config = {
     errorClass: 'popup__error_visible'
 };
 
-const validationPopupEditProfile = new FormValidator(config, formElementEditProfile);
-validationPopupEditProfile.enableValidation();
+//хранит экземпляры валидаторов
+const formValidators = {};
 
-const validationPopupAdd = new FormValidator(config, formElementAdd);
-validationPopupAdd.enableValidation();
+// Включение валидации
+
+function enableValidation(config) {
+    const formList = Array.from(document.querySelectorAll(config.formSelector));
+    formList.forEach(formElement => {
+        const validator = new FormValidator(config, formElement);
+        formValidators[formElement.getAttribute('name')] = validator;
+        validator.enableValidation();
+    });
+}
+enableValidation(config);
 
 // Открытие попапов
 const openPopup = (popup) => {
@@ -79,16 +85,22 @@ function handleImage(data) {
     bigImageUrl.alt = data.name;
 
     openPopup(popupBigImage);
-}
+};
 
+//создаем новую карточку
 
 initialCards.forEach(render);
 
-function render(data) {
+function createCard(data) {
     const item = new Card(data, '#item-template', handleImage);
-    const newItem = item.createElement();
+    const cardElement = item.createElement();
+    return cardElement;
+};
+
+function render(data) {
+    const newItem = createCard(data);
     itemsContainer.prepend(newItem);
-}
+};
 
 //закрытие по кнопке искейп
 function handleKeyUp(evt) {
@@ -96,31 +108,29 @@ function handleKeyUp(evt) {
         const popupOpened = document.querySelector('.popup_opened');
         closePopup(popupOpened);
     }
-}
+};
 
 //добавляем слушатели
 popupOpenEditProfileElement.addEventListener('click', () => {
-    validationPopupEditProfile.resetFormErrors();
+    formValidators['EditProfilePopupform'].resetValidation();
     openPopup(popupEditProfileElement);
     nameInput.value = profileName.textContent;
     jobInput.value = profileJob.textContent;
 });
 
 popupOpenAdd.addEventListener('click', () => {
-    validationPopupAdd.resetFormErrors();
-    buttonSave.classList.add('popup__save-button_disabled');
-    buttonSave.setAttribute('disabled', true);
+    formValidators['AddNewItem'].resetValidation();
     openPopup(popupEditAdd);
 });
 
-formElement.addEventListener('submit', function SubmitformHandler(evt) {
+formElement.addEventListener('submit', function (evt) {
     evt.preventDefault();
     profileName.textContent = nameInput.value;
     profileJob.textContent = jobInput.value;
     closePopup(popupEditProfileElement);
 });
 
-formElementAdd.addEventListener('submit', function SubmitformHandler(evt) {
+formElementAdd.addEventListener('submit', function (evt) {
     evt.preventDefault();
 
     // Добавляем новый элемент
