@@ -7,7 +7,7 @@ export default class FormValidator {
         this._buttonSave = this._form.querySelector(this._config.submitButtonSelector);
     }
 
-    //функция проверяет валидность инпутов
+    // функция проверяет валидность инпутов
     _checkInputValidity(input) {
         if (!input.validity.valid) {
             this._showInputError(input);
@@ -16,7 +16,7 @@ export default class FormValidator {
         }
     }
 
-    //добавление класса с ошибкой
+    // добавление класса с ошибкой
     _showInputError(input) {
         const error = this._form.querySelector(`#${input.id}-error`);
         input.classList.add(this._config.inputErrorClass);
@@ -24,7 +24,7 @@ export default class FormValidator {
         error.textContent = input.validationMessage;
     }
 
-    //удаление класса с ошибкой
+    // удаление класса с ошибкой
     _hideInputError(input) {
         const error = this._form.querySelector(`#${input.id}-error`);
         input.classList.remove(this._config.inputErrorClass);
@@ -32,7 +32,7 @@ export default class FormValidator {
         error.textContent = '';
     }
 
-    //метод меняющий состояние кнопки сохранения
+    // метод меняющий состояние кнопки сохранения
     _toggleButtonState() {
         const isFormValid = Array.from(this._inputs).every(input => {
             return input.validity.valid;

@@ -9,18 +9,19 @@ export default class PopupWithForm extends Popup {
         this._popupSubmitButton = this._popupForm.querySelector('.popup__save-button');
     }
 
-    //////// Получение данных из формы
+    /// Получение данных из формы
     _getInputValues() {
-        ///создали пустой объект
+        // создаем пустой объект
         this._inputValues = {};
-        ////положили в объект значения всех полей
+        // кладем в объект значения всех полей
         this._inputsList.forEach(input => {
             this._inputValues[input.name] = input.value;
         });
+
         return this._inputValues;
     }
 
-    /////// Устанавливаем слушатели формы
+    /// Установка слушателей формы
     setEventListeners() {
         super.setEventListeners();
         this._popupForm.addEventListener('submit', (event) => {
@@ -29,7 +30,7 @@ export default class PopupWithForm extends Popup {
         })
     }
 
-    ////// Закрывает попап, сбрасывает инпуты
+    /// Закрывает попап, сбрасывает инпуты
     close() {
         super.close();
         this._popupForm.reset();

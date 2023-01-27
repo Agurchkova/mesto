@@ -3,7 +3,8 @@ export default class Card {
         this._data = data;
         this._name = data.name;
         this._link = data.link;
-        this._itemTemplate = document.querySelector(itemTemplateSelector).content.querySelector('.photo-gallery__container');
+        this._itemTemplate = document.querySelector(itemTemplateSelector)
+            .content.querySelector('.photo-gallery__container');
         this._itemElement = this._itemTemplate.cloneNode(true);
         this._itemLikeButton = this._itemElement.querySelector('.photo-gallery__like-button');
         this._itemDeleteButton = this._itemElement.querySelector('.photo-gallery__trash-button');
@@ -23,7 +24,7 @@ export default class Card {
         this._itemLikeButton.addEventListener('click', this._handleLikeButtonClick);
         this._itemDeleteButton.addEventListener('click', this._handleDeleteButtonClick);
         this._itemImage.addEventListener('click', () => {
-            this._handleCardClick(this._name, this._link)
+            this._handleCardClick(this._name, this._link);
         });
     }
     // создать карточку

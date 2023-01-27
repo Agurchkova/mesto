@@ -4,20 +4,18 @@ export default class UserInfo {
         this._job = document.querySelector(job);
     }
 
-    //////// объект с данными юзера
+    /// возврат объекта с данными юзера
     getUserInfo() {
         const userInfo = {
             username: this._username.textContent,
             job: this._job.textContent
         }
         return userInfo;
-
     }
 
-    ////////принимает новые данные юзера и добавляет на страницу
+    /// вставляет новые данные юзера и добавляет на страницу
     setUserInfo(data) {
-        this._username.textContent = data.name;
-        this._job.textContent = data.about;
-
+        this._username.textContent = data.username;
+        this._job.textContent = data.job;
     }
-};
+}
