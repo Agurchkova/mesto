@@ -4,9 +4,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-    entry: { main: './src/index.js' },
+    entry: { main: './src/pages/index.js' },
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, './dist'),
         filename: 'main.js',
         publicPath: ''
     },
@@ -19,9 +19,9 @@ module.exports = {
     },
     module: {
         rules: [{
-            test: /\.js$/,
-            use: 'babel-loader',
-            exclude: '/node_modules/'
+            test: /\.js$/,// регулярное выражение, которое ищет все js файлы
+            use: 'babel-loader',// при обработке этих файлов нужно использовать babel-loader
+            exclude: '/node_modules/'// исключает папку node_modules, файлы в ней обрабатывать не нужно
         },
         // добавили правило для обработки файлов
         {

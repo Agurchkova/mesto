@@ -4,6 +4,7 @@
     min-height: 120px;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
+    background-image: url('../../../images/Avatar.svg');
 }
 
 @media screen and (max-width: 648px) {

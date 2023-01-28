@@ -1,3 +1,4 @@
+import './index.css';
 import { initialCards } from "../scripts/utils/initialCards.js";
 import Card from "../scripts/components/Card.js";
 import FormValidator from '../scripts/components/FormValidator.js';
@@ -26,9 +27,6 @@ import {
     itemsContainer,
     config
 } from '../scripts/utils/constants.js';
-
-
-// import './styles/index.css';
 
 /////// хранит экземпляры валидаторов
 const formValidators = {};
