@@ -44,21 +44,20 @@ function enableValidation(config) {
 enableValidation(config);
 
 /////// создаем экземпляр класса UserInfo
-
 const userInfo = new UserInfo({
-    username: '.profile__title',
-    job: '.profile__subtitle'
+    profileName: '.profile__title',
+    profileJob: '.profile__subtitle'
 });
 
 /////// создаем новую карточку
-
-function createCard(data) {
+function renderCard(data) {
 
     const item = new Card(data, '#item-template', handleCardClick);
     const cardElement = item.createElement();
     itemsList.addItem(cardElement);
 
-    return cardElement;
+    return cardElement; //не понятен комментарий. Если убрать тут возврат
+    //  cardElement, то добавление карточки на страницу работает некорректно
 };
 
 function handleCardClick(name, link) {
@@ -67,19 +66,17 @@ function handleCardClick(name, link) {
 
 /////// Создаем экземпляр класса Section
 const itemsList = new Section({
-    renderer: (item) => {
-        itemsList.addItem(createCard(item));
-    },
+    items: initialCards,
+    renderer: renderCard
 }, '.photo-gallery__items');
 
-itemsList.renderItems(initialCards);
+itemsList.renderItems();
 
 /////// создаем попап с формой редактирования профиля
 const popupEditProfile = new PopupWithForm({
     popupSelector: '.popup_type_edit-profile',
     handleSubmitForm: (data) => {
         userInfo.setUserInfo(data);
-        popupEditProfile.close();
     }
 });
 
@@ -89,8 +86,7 @@ popupEditProfile.setEventListeners();
 const popupAddNewCard = new PopupWithForm({
     popupSelector: '.popup_type_add-cards',
     handleSubmitForm: (formData) => {
-        itemsList.addItem(createCard(formData));
-        popupAddNewCard.close();
+        itemsList.addItem(renderCard(formData));
     }
 });
 popupAddNewCard.setEventListeners();
@@ -103,12 +99,12 @@ handlePopupBigImage.setEventListeners();
 /////// обработчики открытия попапов добавления новой карточки и редактирования профиля
 
 popupOpenAdd.addEventListener('click', () => {
-    formValidators['AddNewItem'].resetValidation();
+    formValidators['AddNewItem'].resetValidation(); //тут не работает formValidators[formElementAdd.name].resetValidation();
     popupAddNewCard.open();
 });
 
 popupOpenEditProfileElement.addEventListener('click', function () {
-    formValidators['EditProfilePopupform'].resetValidation();
+    formValidators[formElement.name].resetValidation();
     ({
         username: nameInput.value,
         job: jobInput.value

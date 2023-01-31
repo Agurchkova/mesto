@@ -4,4 +4,7 @@
     height: 282px;
     box-sizing: border-box;
     display: block;
+    cursor: pointer;
+    background-color: black;
+    color: white;
 }

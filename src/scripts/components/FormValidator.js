@@ -69,7 +69,6 @@ export default class FormValidator {
 
     // метод сброса валидации (очистка формы и управление кнопкой)
     resetValidation() {
-        this._form.reset();
         this._inputs.forEach((input) => {
             this._hideInputError(input);
         })

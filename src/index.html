@@ -8,13 +8,17 @@
   </head>
   <body class="page">
     <header class="header">
-      <div 
-        class="header__logo"></div>
+      <img
+      src="<%=require('./images/logo.svg')%>"
+      class="header__logo"
+      alt="Логотип Место Россия">
     </header>
     <main class="page__content">
       <section class="profile">
         <img
-          class="profile__avatar">
+          class="profile__avatar"
+          src="<%=require('./images/Avatar.svg')%>"
+          alt="фотография Жак-Ив Кусто">
         <div class="profile__info">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
           <p class="profile__subtitle">Исследователь океана</p>
@@ -153,8 +157,8 @@
             aria-label="Увеличение картинки">
             <img
               class="photo-gallery__item"
-              src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg"
-              alt="Архыз">
+              src="#"
+              alt="#">
           </button>
           <figcaption class="photo-gallery__description">
             <h2 class="photo-gallery__title"></h2>
