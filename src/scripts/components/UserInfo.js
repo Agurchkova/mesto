@@ -1,14 +1,14 @@
 export default class UserInfo {
-    constructor({ profileName, profileJob }) {
-        this._profileName = document.querySelector(profileName);
-        this._profileJob = document.querySelector(profileJob);
+    constructor({ profileNameSelector, profileJobSelector }) {
+        this._profileNameSelector = document.querySelector(profileNameSelector);
+        this._profileJobSelector = document.querySelector(profileJobSelector);
     }
 
     /// возврат объекта с данными юзера
     getUserInfo() {
         const userInfo = {
-            username: this._profileName.textContent,
-            job: this._profileJob.textContent
+            username: this._profileNameSelector.textContent,
+            job: this._profileJobSelector.textContent
         }
 
         return userInfo;
@@ -16,7 +16,7 @@ export default class UserInfo {
 
     /// вставляет новые данные юзера и добавляет на страницу
     setUserInfo(data) {
-        this._profileName.textContent = data.username;
-        this._profileJob.textContent = data.job;
+        this._profileNameSelector.textContent = data.username;
+        this._profileJobSelector.textContent = data.job;
     }
 }

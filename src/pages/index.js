@@ -45,8 +45,8 @@ enableValidation(config);
 
 /////// создаем экземпляр класса UserInfo
 const userInfo = new UserInfo({
-    profileName: '.profile__title',
-    profileJob: '.profile__subtitle'
+    profileNameSelector: '.profile__title',
+    profileJobSelector: '.profile__subtitle'
 });
 
 /////// создаем новую карточку
@@ -55,9 +55,6 @@ function renderCard(data) {
     const item = new Card(data, '#item-template', handleCardClick);
     const cardElement = item.createElement();
     itemsList.addItem(cardElement);
-
-    return cardElement; //не понятен комментарий. Если убрать тут возврат
-    //  cardElement, то добавление карточки на страницу работает некорректно
 };
 
 function handleCardClick(name, link) {
@@ -86,7 +83,7 @@ popupEditProfile.setEventListeners();
 const popupAddNewCard = new PopupWithForm({
     popupSelector: '.popup_type_add-cards',
     handleSubmitForm: (formData) => {
-        itemsList.addItem(renderCard(formData));
+        renderCard(formData);
     }
 });
 popupAddNewCard.setEventListeners();
@@ -99,12 +96,12 @@ handlePopupBigImage.setEventListeners();
 /////// обработчики открытия попапов добавления новой карточки и редактирования профиля
 
 popupOpenAdd.addEventListener('click', () => {
-    formValidators['AddNewItem'].resetValidation(); //тут не работает formValidators[formElementAdd.name].resetValidation();
+    formValidators[formElementAdd.getAttribute('name')].resetValidation();
     popupAddNewCard.open();
 });
 
 popupOpenEditProfileElement.addEventListener('click', function () {
-    formValidators[formElement.name].resetValidation();
+    formValidators[formElement.getAttribute('name')].resetValidation();
     ({
         username: nameInput.value,
         job: jobInput.value
