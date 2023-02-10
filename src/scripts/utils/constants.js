@@ -5,6 +5,7 @@ const popupEditAdd = document.querySelector('.popup_type_add-cards');
 // popups open buttons
 const popupOpenEditProfileElement = document.querySelector('.profile__edit-button');
 const popupOpenAdd = document.querySelector('.profile__add-button');
+const avatarEditButton = document.querySelector('.profile__avatar-edit-button');
 // form fields
 const profileName = document.querySelector('.profile__title');
 const profileJob = document.querySelector('.profile__subtitle');
@@ -14,6 +15,8 @@ const nameInput = formElement.querySelector('.popup__input_type_name');
 const jobInput = formElement.querySelector('.popup__input_type_job');
 // form fields
 const formElementAdd = document.querySelector('[name="AddNewItem"]');
+const formElementEditProfile = document.querySelector('[name="EditProfilePopupform"]');
+const formElementEditAvatar = document.querySelector('[name="EditAvatarform"]');
 const addName = formElementAdd.querySelector('.popup__input_type_nameAdd');
 const addUrl = formElementAdd.querySelector('.popup__input_type_urlAdd');
 // popup big-Image
@@ -34,7 +37,7 @@ const config = {
 
 export {
     popupElements, popupEditProfileElement, popupEditAdd, popupOpenEditProfileElement,
-    popupOpenAdd, profileName, profileJob, profileAvatar, formElement, nameInput, jobInput,
-    formElementAdd, addName, addUrl, popupBigImage, bigImageUrl,
+    popupOpenAdd, avatarEditButton, profileName, profileJob, profileAvatar, formElement, nameInput, jobInput,
+    formElementAdd, formElementEditProfile, formElementEditAvatar, addName, addUrl, popupBigImage, bigImageUrl,
     bigImageCaption, itemsContainer, config
 };

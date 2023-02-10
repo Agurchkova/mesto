@@ -7,6 +7,7 @@ export default class PopupWithImage extends Popup {
         this._popupBigImage = this._popup.querySelector('.popup__big-image');
         this._popupImageCaption = this._popup.querySelector('.popup__image-caption');
     }
+
     /// открывает попап с необходимыми значениями
     open(name, link) {
         this._popupBigImage.alt = name;
