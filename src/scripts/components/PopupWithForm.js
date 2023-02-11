@@ -10,7 +10,7 @@ export default class PopupWithForm extends Popup {
         this._popupSaveButtonText = this._popupSaveButton.textContent;
     }
 
-    /// Получение данных из формы
+    /// получение данных из формы
     _getInputValues() {
         // создаем пустой объект
         const inputValues = {};
@@ -18,9 +18,16 @@ export default class PopupWithForm extends Popup {
         this._inputsList.forEach(input => {
             inputValues[input.name] = input.value;
         });
-
+        // console.log(inputValues)
         return inputValues;
     }
+    /// устанавливаем значения инпутов
+    // setInputValues(data) {
+    //     this._inputsList.forEach((input) => {
+    //         input.value = data[input.name];    /// вставляем в значение инпута данные
+    //         //  из объекта по атрибуту name
+    //     });
+    // }
 
     /// закрывает попап, сбрасывает инпуты
     close() {

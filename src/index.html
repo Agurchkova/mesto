@@ -50,7 +50,7 @@
           class="popup__close-button button"
           aria-label="Закрыть окно">
         </button>
-        <form class="popup__form" name="EditAvatarform" novalidate>
+        <form class="popup__form" action="#" name="EditAvatarform" novalidate>
           <h2 class="popup__title">Обновить аватар</h2>
           <label>
             <input
@@ -58,7 +58,7 @@
               type="url"
               placeholder="Ссылка на картинку"
               name="avatar"
-              id="avatar"
+              id="input-avatar"
               required>
              <span 
                 class="popup__input-error"
@@ -78,7 +78,7 @@
           class="popup__close-button button"
           aria-label="Закрыть окно">
         </button>
-        <form class="popup__form" name="EditProfilePopupform" novalidate>
+        <form class="popup__form" method="GET" action="#" name="EditProfilePopupform" novalidate>
           <h2 class="popup__title">Редактировать профиль</h2>
           <label>
             <input
@@ -124,7 +124,7 @@
           aria-label="Закрыть окно"
           name="closeButtonAdd">
         </button>
-        <form class="popup__form" name="AddNewItem" novalidate>
+        <form class="popup__form" method="GET" action="#" name="AddNewItem" novalidate>
           <h2 class="popup__title">Новое место</h2>
           <label>
             <input
@@ -207,12 +207,14 @@
           </button>
           <figcaption class="photo-gallery__description">
             <h2 class="photo-gallery__title"></h2>
-            <button
-              type="button"
-              class="photo-gallery__like-button button"
-              aria-label="Добавить в избранное">
-            </button>
-            <span class="photo-gallery__like-counter"></span>
+            <div class="photo-gallery__likes-area">
+              <button
+                type="button"
+                class="photo-gallery__like-button button"
+                aria-label="Добавить в избранное">
+              </button>
+              <span class="photo-gallery__like-counter"></span>
+          </div>
           </figcaption>
         </figure>
       </li>

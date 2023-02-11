@@ -1,15 +1,15 @@
 export default class Card {
-    constructor(data, userId, itemTemplateSelector, handleCardClick, handleDeleteCard, handleSetLike, handleRemoveLike) {
+    constructor({ data, userId, itemTemplateSelector, handleCardClick, handleDeleteItem, handleSetLike, handleRemoveLike }) {
         this._data = data;
         this._name = data.name;
         this._link = data.link;
-        this._cardId = data._id;
         this._userId = userId;
-        this._likes = data.likes;
-        this._handleDeleteCard = handleDeleteCard;
+        this._itemId = data._id;
         this._itemOwnerId = data.owner._id;
+        this._likes = data.likes;
+        this._handleDeleteItem = handleDeleteItem;
         this._itemTemplateSelector = itemTemplateSelector;
-        this._handleCardClick = handleCardClick;
+        this._handleCardClick = handleCardClick
         this._handleSetLike = handleSetLike;
         this._handleRemoveLike = handleRemoveLike;
     }
@@ -21,13 +21,8 @@ export default class Card {
         return cardElement;
     }
 
-    //поставить лайк
-    // _handleLikeButtonClick = () => {
-    //     this._itemLikeButton.classList.toggle('photo-gallery__like-button_active');
-    // }
-
     //удалить карточку
-    _handleDeleteButtonClick = () => {
+    deleteCard = () => {
         this._itemElement.remove();
         this._itemElement = null;
     }
@@ -36,13 +31,13 @@ export default class Card {
     _setEventListeners() {
         this._itemLikeButton.addEventListener('click', () => {
             if (this._itemLikeButton.classList.contains('photo-gallery__like-button_active')) {
-                this._handleRemoveLike(this._cardId);
+                this._handleRemoveLike(this._itemId);
             } else {
-                this._handleSetLike(this._cardId);
+                this._handleSetLike(this._itemId);
             }
         });
         this._itemDeleteButton.addEventListener('click', () => {
-            this._handleDeleteCard(this._cardId);
+            this._handleDeleteItem(this._itemId);
         });
         this._itemImage.addEventListener('click', () => {
             this._handleCardClick(this._name, this._link);
@@ -60,7 +55,7 @@ export default class Card {
         this._itemTitle.textContent = this._name;
         this._itemImage.src = this._link;
         this._itemImage.alt = this._name;
-        this._hasTrashButton();
+        this._hasDeleteButton();
         this._isItemLiked();
         this._likesCounter.textContent = this._likes.length;
 
@@ -85,9 +80,14 @@ export default class Card {
     }
 
     // проверяем владельца карточки и убираем кнопку корзины
-    _hasTrashButton() {
+    _hasDeleteButton() {
         if (this._userId !== this._itemOwnerId) {
             this._itemDeleteButton.remove();
         }
     };
+
+    // возвращаем Id карточки
+    getItemId() {
+        return this._itemId;
+    }
 };

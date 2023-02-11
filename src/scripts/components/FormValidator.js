@@ -7,6 +7,7 @@ export default class FormValidator {
         this._buttonSave = this._form.querySelector(this._config.submitButtonSelector);
     }
 
+
     // функция проверяет валидность инпутов
     _checkInputValidity(input) {
         if (!input.validity.valid) {

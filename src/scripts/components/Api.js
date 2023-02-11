@@ -1,8 +1,7 @@
 export default class Api {
-    constructor(baseUrl, headers) {
-        this._baseUrl = baseUrl;
-        this._headers = headers;
-        // console.log(this._baseUrl)
+    constructor(options) {
+        this._baseUrl = options.baseUrl;
+        this._headers = options.headers;
     }
 
     _checkResponse(res) {
@@ -13,23 +12,24 @@ export default class Api {
         }
     }
 
-    ///получаем карточки с сервера
     getInitialCards() {
-        return fetch(`https://mesto.nomoreparties.co/v1/cohort-59/cards`, {
-            headers: {
-                authorization: 'ed6511d1-8679-4d0e-906b-e0ea7dcb3ddf'
-            }
+        return fetch(`${this._baseUrl}/cards`, {
+            headers: this._headers
         })
-            .then(res => this._checkResponse(res));
+
+            .then(res => this._checkResponse(res))
+
     }
 
     // ///получаем данные о пользователе
-    getUserData() {
-        return fetch(`https://mesto.nomoreparties.co/v1/cohort-59/users/me`, {
-            headers: {
-                authorization: 'ed6511d1-8679-4d0e-906b-e0ea7dcb3ddf'
-            }
+    getUserInfo() {
+        return fetch(`${this._baseUrl}/users/me`, {
+            headers: this._headers
         })
+            // .then(res => res.ok ? res.json() : Promise.reject())
+            // .then(res => {
+            //     console.log('res =>', res)
+            // })
             .then(res => this._checkResponse(res));
     }
 
@@ -72,43 +72,32 @@ export default class Api {
     }
 
     /// ставим лайк карточке
-    setLike(cardId) {
-        return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+    setLike(itemId) {
+        return fetch(`${this._baseUrl}/cards/${itemId}/likes`, {
             method: 'PUT',
-            headers: this._headers
+            headers: this._headers,
         })
             .then(res => this._checkResponse(res));
     }
 
     /// удаляем лайк
-    deleteLike(cardId) {
-        return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+    deleteLike(itemId) {
+        return fetch(`${this._baseUrl}/cards/${itemId}/likes`, {
             method: 'DELETE',
-            headers: this._headers
+            headers: this._headers,
         })
             .then(res => this._checkResponse(res));
     }
     /// удаляем карточку
-    deleteCard(cardId) {
-        return fetch(`${this._baseUrl}/cards/${cardId}`, {
+    deleteCard(itemId) {
+        return fetch(`${this._baseUrl}/cards/${itemId}`, {
             method: 'DELETE',
-            headers: this._headers
+            headers: this._headers,
         })
             .then(res => this._checkResponse(res));
     }
+
 }
 
 
-// const getUserData = () => {
-//     return fetch('https://nomoreparties.co/v1/cohort-59/users/me', {
-//         headers: {
-//             authorization: 'ed6511d1-8679-4d0e-906b-e0ea7dcb3ddf'
-//         }
-//     })
-//         .then(res => res.json())
-//         .then((result) => {
-//             console.log(result);
-//         });
-// }
-// getUserData();
 
