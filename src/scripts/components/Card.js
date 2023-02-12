@@ -1,5 +1,6 @@
 export default class Card {
-    constructor({ data, userId, itemTemplateSelector, handleCardClick, handleDeleteItem, handleSetLike, handleRemoveLike }) {
+    constructor({ data, userId, itemTemplateSelector, handleCardClick,
+        handleDeleteItem, handleSetLike, handleRemoveLike }) {
         this._data = data;
         this._name = data.name;
         this._link = data.link;
@@ -13,6 +14,7 @@ export default class Card {
         this._handleSetLike = handleSetLike;
         this._handleRemoveLike = handleRemoveLike;
     }
+
     //получение шаблона карточки
     _createCardElement() {
         const cardElement = document.querySelector(this._itemTemplateSelector)
@@ -70,6 +72,7 @@ export default class Card {
         this._likesCounter.textContent = this._likes.length;
         this._itemLikeButton.classList.toggle('photo-gallery__like-button_active');
     }
+
     // проверяем стоит ли лайк на карточке
     _isItemLiked() {
         if (this._likes.some((user) => {

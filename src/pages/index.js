@@ -1,5 +1,4 @@
 // import './index.css';
-// import { initialCards } from "../scripts/utils/initialCards.js";
 import Card from "../scripts/components/Card.js";
 import FormValidator from '../scripts/components/FormValidator.js';
 import Section from '../scripts/components/Section.js';
@@ -21,6 +20,8 @@ import {
     formElement,
     nameInput,
     jobInput,
+    idNameInputEditProfile,
+    idJobInputEditProfile,
     formElementAdd,
     formElementEditProfile,
     formElementEditAvatar,
@@ -32,17 +33,6 @@ import {
     itemsContainer,
     config
 } from '../scripts/utils/constants.js';
-
-
-// fetch('https://mesto.nomoreparties.co/v1/cohort-59/users/me', {
-//     headers: {
-//         authorization: 'ed6511d1-8679-4d0e-906b-e0ea7dcb3ddf'
-//     }
-// })
-//     // .then(res => res.ok ? res.json() : Promise.reject())
-//     .then(res => {
-//         console.log('res =>', res)
-//     })
 
 /////// подключение Api
 const api = new Api({
@@ -87,6 +77,7 @@ const userInfo = new UserInfo({
     profileJobSelector: '.profile__subtitle',
     profileAvatarSelector: '.profile__avatar'
 });
+
 
 /////// создаем новую карточку
 function renderCard(data) {
@@ -220,31 +211,13 @@ popupOpenAdd.addEventListener('click', () => {
     popupAddNewCard.open();
 });
 
-// const idNameInputEditProfile = formElementEditProfile.querySelector('#input-name');
-// // console.log(idNameInputEditProfile)
-// const idJobInputEditProfile = formElementEditProfile.querySelector('#input-job');
-// console.log(idJobInputEditProfile)
-// // Заносим данные в форму попапа редактирования профиля
-// function fillInEditProfileFormInputs({ username, job }) {
-//     idNameInputEditProfile.value = username;
-//     idJobInputEditProfile.value = job;
-// }
-
 popupOpenEditProfileElement.addEventListener('click', () => {
-    // const userData = userInfo.getUserInfo();
-    // popupEditProfile.setInputValues(userData);
-
     formValidators[formElementEditProfile.getAttribute('name')].resetValidation();
-    // ({
-    //     username: nameInput.value,
-    //     job: jobInput.value
-    // } = userInfo.getUserInfo());
+    ({
+        username: idNameInputEditProfile.value,
+        job: idJobInputEditProfile.value
+    } = userInfo.getUserInfo());
 
-    // const info = userInfo.getUserInfo();
-    // fillInEditProfileFormInputs({
-    //     username: info.username,
-    //     job: info.job
-    // });
     popupEditProfile.open();
 });
 

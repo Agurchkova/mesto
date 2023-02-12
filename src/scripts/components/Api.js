@@ -8,7 +8,7 @@ export default class Api {
         if (res.ok) {
             return res.json();
         } else {
-            return Promise.reject(`Ошибка: ${res.status} ${res.statusText}`)
+            return Promise.reject(`Ошибка: ${res.status}`)
         }
     }
 
@@ -16,7 +16,6 @@ export default class Api {
         return fetch(`${this._baseUrl}/cards`, {
             headers: this._headers
         })
-
             .then(res => this._checkResponse(res))
 
     }
@@ -26,10 +25,6 @@ export default class Api {
         return fetch(`${this._baseUrl}/users/me`, {
             headers: this._headers
         })
-            // .then(res => res.ok ? res.json() : Promise.reject())
-            // .then(res => {
-            //     console.log('res =>', res)
-            // })
             .then(res => this._checkResponse(res));
     }
 
@@ -98,6 +93,3 @@ export default class Api {
     }
 
 }
-
-
-

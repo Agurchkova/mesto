@@ -18,10 +18,9 @@ export default class UserInfo {
 
     /// вставляет новые данные юзера и добавляет на страницу
     setUserInfo(data) {
-        this._profileNameSelector.textContent = data.username,
-            this._profileJobSelector.textContent = data.job,
-            this._profileAvatarSelector.src = data.avatar,
-            console.log(data.username)
+        this._profileNameSelector.textContent = data.name,
+            this._profileJobSelector.textContent = data.about,
+            this._profileAvatarSelector.src = data.avatar
     }
 
 }

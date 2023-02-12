@@ -1,12 +1,20 @@
 .page__content {
-    margin-top: 40px;
-    margin-bottom: 67px;
+    margin: 40px auto 67px;
     min-height: 100vh;
+    max-width: 880px;
+    width: calc(100% - 200px);
 }
 
-@media screen and (max-width: 886px) {
+@media screen and (max-width: 1024px) {
     .page__content {
-        margin-top: 42px;
-        margin-bottom: 48px;
+        margin: 42px auto 48px;
+        width: calc(100% - 100px);
+    }
+}
+
+@media screen and (max-width: 454px) {
+    .page__content {
+        margin: 42px auto 48px;
+        width: 100%;
     }
 }
