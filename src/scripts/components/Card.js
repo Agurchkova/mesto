@@ -15,7 +15,7 @@ export default class Card {
         this._handleRemoveLike = handleRemoveLike;
     }
 
-    //получение шаблона карточки
+    /// получение шаблона карточки
     _createCardElement() {
         const cardElement = document.querySelector(this._itemTemplateSelector)
             .content.querySelector('.photo-gallery__container').cloneNode(true);
@@ -23,13 +23,13 @@ export default class Card {
         return cardElement;
     }
 
-    //удалить карточку
-    deleteCard = () => {
+    /// удалить карточку
+    deleteItem = () => {
         this._itemElement.remove();
         this._itemElement = null;
     }
 
-    //установка слушателей
+    /// установка слушателей
     _setEventListeners() {
         this._itemLikeButton.addEventListener('click', () => {
             if (this._itemLikeButton.classList.contains('photo-gallery__like-button_active')) {
@@ -46,7 +46,7 @@ export default class Card {
         });
     }
 
-    //создать карточку
+    /// создать карточку
     createElement() {
         this._itemElement = this._createCardElement();
         this._itemImage = this._itemElement.querySelector('.photo-gallery__item');
@@ -66,14 +66,14 @@ export default class Card {
         return this._itemElement;
     }
 
-    // установка и удаление лайков, изменение количества лайков
+    /// установка и удаление лайков, изменение количества лайков
     handleItemLike(data) {
         this._likes = data.likes;
         this._likesCounter.textContent = this._likes.length;
         this._itemLikeButton.classList.toggle('photo-gallery__like-button_active');
     }
 
-    // проверяем стоит ли лайк на карточке
+    /// проверяем стоит ли лайк на карточке
     _isItemLiked() {
         if (this._likes.some((user) => {
             return this._userId === user._id;
@@ -82,14 +82,14 @@ export default class Card {
         }
     }
 
-    // проверяем владельца карточки и убираем кнопку корзины
+    /// проверяем Id владельца карточки, убираем кнопку корзины
     _hasDeleteButton() {
         if (this._userId !== this._itemOwnerId) {
             this._itemDeleteButton.remove();
         }
     };
 
-    // возвращаем Id карточки
+    /// возвращаем Id карточки
     getItemId() {
         return this._itemId;
     }

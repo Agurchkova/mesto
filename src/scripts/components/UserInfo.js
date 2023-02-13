@@ -5,7 +5,7 @@ export default class UserInfo {
             this._profileAvatarSelector = document.querySelector(profileAvatarSelector)
     }
 
-    /// возврат объекта с данными юзера
+    /// возвращаем объект с данными юзера
     getUserInfo() {
         const userInfo = {
             username: this._profileNameSelector.textContent,
@@ -16,7 +16,7 @@ export default class UserInfo {
 
     }
 
-    /// вставляет новые данные юзера и добавляет на страницу
+    /// вставляем новые данные юзера и добавляет на страницу
     setUserInfo(data) {
         this._profileNameSelector.textContent = data.name,
             this._profileJobSelector.textContent = data.about,

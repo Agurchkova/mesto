@@ -1,4 +1,4 @@
-// import './index.css';
+import './index.css';
 import Card from "../scripts/components/Card.js";
 import FormValidator from '../scripts/components/FormValidator.js';
 import Section from '../scripts/components/Section.js';
@@ -8,29 +8,14 @@ import UserInfo from "../scripts/components/UserInfo.js";
 import Api from "../scripts/components/Api.js";
 import PopupWithConfirmation from "../scripts/components/PopupWithConfirmation.js";
 import {
-    popupElements,
-    popupEditProfileElement,
-    popupEditAdd,
     popupOpenEditProfileElement,
     popupOpenAdd,
     avatarEditButton,
-    profileName,
-    profileJob,
-    profileAvatar,
-    formElement,
-    nameInput,
-    jobInput,
     idNameInputEditProfile,
     idJobInputEditProfile,
     formElementAdd,
     formElementEditProfile,
     formElementEditAvatar,
-    addName,
-    addUrl,
-    popupBigImage,
-    bigImageUrl,
-    bigImageCaption,
-    itemsContainer,
     config
 } from '../scripts/utils/constants.js';
 
@@ -92,10 +77,10 @@ function renderCard(data) {
         handleDeleteItem: (itemId) => {
             popupConfirmDelete.open();
             popupConfirmDelete.handleCallback(() => {
-                api.deleteCard(itemId)
+                api.deleteItem(itemId)
                     .then(() => {
                         popupConfirmDelete.close();
-                        item.deleteCard();
+                        item.deleteItem();
                     })
                     .catch((err) => {
                         console.error(err);
@@ -141,7 +126,7 @@ popupConfirmDelete.setEventListeners();
 const popupEditProfile = new PopupWithForm({
     popupSelector: '.popup_type_edit-profile',
     handleSubmitForm: (formData) => {
-        popupEditProfile.loading(true);
+        popupEditProfile.renderLoading(true);
         api.editUserData(formData)
             .then((formData) => {
                 userInfo.setUserInfo(formData);
@@ -151,18 +136,17 @@ const popupEditProfile = new PopupWithForm({
                 console.error(err);
             })
             .finally(() => {
-                popupEditProfile.loading(false);
+                popupEditProfile.renderLoading(false);
             });
     }
 });
-
 popupEditProfile.setEventListeners();
 
 /////// создаем попап добавления новой карточки
 const popupAddNewCard = new PopupWithForm({
     popupSelector: '.popup_type_add-cards',
     handleSubmitForm: (formData) => {
-        popupAddNewCard.loading(true);
+        popupAddNewCard.renderLoading(true);
         api.addItem(formData)
             .then((formData) => {
                 renderCard(formData);
@@ -172,7 +156,7 @@ const popupAddNewCard = new PopupWithForm({
                 console.error(err);
             })
             .finally(() => {
-                popupAddNewCard.loading(false);
+                popupAddNewCard.renderLoading(false);
             });
     }
 });
@@ -186,8 +170,8 @@ handlePopupBigImage.setEventListeners();
 const popupEditAvatar = new PopupWithForm({
     popupSelector: '.popup_type_avatar',
     handleSubmitForm: (data) => {
-        popupEditAvatar.loading(true);
-        api.editAvatar(data)
+        popupEditAvatar.renderLoading(true);
+        api.changeAvatar(data)
             .then((avatar) => {
                 userInfo.setUserInfo(avatar);
                 popupEditAvatar.close();
@@ -196,12 +180,11 @@ const popupEditAvatar = new PopupWithForm({
                 console.error(err);
             })
             .finally(() => {
-                popupEditAvatar.loading(false);
+                popupEditAvatar.renderLoading(false);
             });
     }
 });
 popupEditAvatar.setEventListeners();
-
 
 /////// обработчики открытия попапов добавления новой карточки, 
 /////// редактирования профиля и аватара пользователя
@@ -222,7 +205,6 @@ popupOpenEditProfileElement.addEventListener('click', () => {
 });
 
 avatarEditButton.addEventListener('click', () => {
-
-    popupEditAvatar.open();
     formValidators[formElementEditAvatar.getAttribute('name')].resetValidation();
+    popupEditAvatar.open();
 });

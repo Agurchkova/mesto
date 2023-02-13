@@ -10,7 +10,7 @@ export default class PopupWithForm extends Popup {
         this._popupSaveButtonText = this._popupSaveButton.textContent;
     }
 
-    /// получение данных из формы
+    /// получение значений из формы
     _getInputValues() {
         // создаем пустой объект
         const inputValues = {};
@@ -37,8 +37,8 @@ export default class PopupWithForm extends Popup {
         })
     }
 
-    /// изменение состояние кнопки во время загрузки
-    loading(isLoading) {
+    /// отрисовка состояния кнопки пока данные загружаются
+    renderLoading(isLoading) {
         if (isLoading) {
             this._popupSaveButton.textContent = 'Сохранение...'
         } else {

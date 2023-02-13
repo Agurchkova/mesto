@@ -6,12 +6,12 @@ export default class PopupWithConfirmation extends Popup {
         this._popupForm = this._popup.querySelector('.popup__form');
     }
 
-    // коллбэк на удаление карточки
+    /// колбек на удаление карточки
     handleCallback(removing) {
         this._handleSubmitCallback = removing;
     }
 
-    // удаление карточки по нажатию на submit
+    // /// удаление карточки по кнопке подтверждения
     setEventListeners() {
         super.setEventListeners();
         this._popupForm.addEventListener('click', (event) => {

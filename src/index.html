@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css">
     <title>Mesto</title>
   </head>
   <body class="page">
     <header class="header">
       <img
-      src="./images/logo.svg"
+      src="<%=require('./images/logo.svg')%>"
       class="header__logo"
       alt="Логотип Место Россия">
     </header>
@@ -18,8 +17,8 @@
       <section class="profile">
         <img
           class="profile__avatar"
-          src="./images/Avatar.svg"
-          alt="аватар профиля">
+          src="<%=require('./images/Avatar.svg')%>"
+          alt="Аватар профиля">
         <button class="profile__avatar-edit-button"></button>
         <div class="profile__info">
           <h1 class="profile__title"></h1>
@@ -219,6 +218,5 @@
         </figure>
       </li>
     </template>
-    <script src="./pages/index.js" type ="module"></script>
   </body>
 </html>
