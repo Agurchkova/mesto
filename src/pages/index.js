@@ -35,7 +35,7 @@ Promise.all([api.getInitialCards(), api.getUserInfo()])
     .then(([initialCards, userData]) => {
         userInfo.setUserInfo(userData);
         userId = userData._id;
-        itemsList.renderItems(initialCards);
+        itemsList.renderItems(initialCards.reverse());
     })
     .catch((err) => {
         console.error(err);
@@ -62,7 +62,6 @@ const userInfo = new UserInfo({
     profileJobSelector: '.profile__subtitle',
     profileAvatarSelector: '.profile__avatar'
 });
-
 
 /////// создаем новую карточку
 function renderCard(data) {
@@ -114,7 +113,6 @@ function renderCard(data) {
 const itemsList = new Section({
     renderer: renderCard
 }, '.photo-gallery__items');
-
 
 /////// создаем попап подтверждения удаления карточки
 const popupConfirmDelete = new PopupWithConfirmation({
