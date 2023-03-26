@@ -32,8 +32,8 @@
 <li>Webpack</li>
 
 ## Ссылки на проект и на макет:
-### <a href="https://agurchkova.github.io/mesto/">Проект на Github Pages</a>
-### <a href="https://www.figma.com/file/PSdQFRHoxXJFs2FH8IXViF/JavaScript.-Sprint-9?node-id=0%3A1&t=mFnPE58RWU9b8jsH-1">Макет в Figma</a>
+#### <a href="https://agurchkova.github.io/mesto/">Проект на Github Pages</a>
+#### <a href="https://www.figma.com/file/PSdQFRHoxXJFs2FH8IXViF/JavaScript.-Sprint-9?node-id=0%3A1&t=mFnPE58RWU9b8jsH-1">Макет в Figma</a>
 
 ### Инструкция для работы с проектом:
 ```ts
