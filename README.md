@@ -1,4 +1,4 @@
-# «Место» - проектная работа для Яндекс.Практикум
+# «Место» - проектная работа для <a href="https://practicum.yandex.ru/">Яндекс.Практикум</a>
 <img align="center" src="https://github.com/Agurchkova/Agurchkova/blob/main/mesto.jpg?raw=true" alt="Mesto" width="800"/>
 
 # О проекте
